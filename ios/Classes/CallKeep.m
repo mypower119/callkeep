@@ -241,17 +241,17 @@ static CXProvider* sharedProvider;
 
     if (dic[@"aps"] != nil) {
         NSLog(@"Do not use the 'alert' format for push type %@.", payload.type);
-        if(completion != nil) {
-            completion();
-        }
-        return;
+        //if(completion != nil) {
+        //    completion();
+        //}
+        //return;
     }
 
-    NSString *uuid = dic[@"uuid"];
-    NSString *callerId = dic[@"caller_id"];
-    NSString *callerName = dic[@"caller_name"];
-    BOOL hasVideo = [dic[@"has_video"] boolValue];
-    NSString *callerIdType = dic[@"caller_id_type"];
+    NSString *uuid = dic[@"data"][@"uuid"];
+    NSString *callerId = dic[@"data"][@"caller_id"];
+    NSString *callerName = dic[@"data"][@"caller_name"];
+    BOOL hasVideo = [dic[@"data"][@"has_video"] boolValue];
+    NSString *callerIdType = dic[@"data"][@"caller_id_type"];
    
 
     if( uuid == nil) {
